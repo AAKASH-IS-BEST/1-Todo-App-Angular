@@ -1,0 +1,17 @@
+<!-- <p>Todo Working !!</p>
+<ul *ngFor="let todo of todos">
+    <li>{{todo.sno}} -- {{todo.title}} -- {{todo.description}} -- {{todo.active}} </li>
+</ul> -->
+
+<add-todo-item (todoAdd)="addTodo($event)"></add-todo-item>
+
+<h4>All Todos for the day !!</h4>
+
+<div *ngIf="this.todos.length === 0; else elseBlock">
+    <p>No Task pending !! Enjoy !!</p>
+</div>
+<ng-template #elseBlock>
+    <div *ngFor="let todo of todos; index as i">
+        <todo-item [todo]="todo" [i]="i" (todoDelete)="deleteTodo($event)" (todoCompleted)="toggleTodos($event)"></todo-item>
+    </div>
+</ng-template>

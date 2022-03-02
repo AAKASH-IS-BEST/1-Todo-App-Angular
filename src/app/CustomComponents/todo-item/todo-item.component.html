@@ -1,0 +1,6 @@
+<div class="my-3">
+    <h5 [ngClass]="{'strike': !todo.active }">{{todo.title}}</h5>
+    <p [ngClass]="{'strike': !todo.active }">{{todo.description}}</p>
+    <button class="btn-sm btn-success" (click)="onCompletedClick(todo)">Completed</button>
+    <button class="btn-sm btn-danger" (click)="onClick(todo)">Delete</button>
+</div>
